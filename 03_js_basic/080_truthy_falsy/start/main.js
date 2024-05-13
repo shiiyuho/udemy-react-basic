@@ -11,7 +11,7 @@ undefined
 NaN (Not a Number)
 */
 
-const a = 0;
+const a = 0; //falsyな値(取れるのは「－10」)ただし"0"はtruthy
 let result = a ? 10 : -10;
 console.log(result);
 
