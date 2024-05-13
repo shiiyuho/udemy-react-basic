@@ -10,7 +10,7 @@ let arr1 = [1, 2, 3];
 let arr2 = [4, 5, 6];
 let newArr = [...arr1, ...arr2, 10];
 let newArr1 = arr1;
-newArr1.push(4); //newArr1に「４」を追加
+newArr1.push(4); //newArr1に「４」を追加,
 console.log(newArr);
 
 //オブジェクトに対してのスプレッド
