@@ -1,4 +1,4 @@
-Reactの動かし方
+コンポーネントの定義
 <!DOCTYPE html>
 <html>
   <head>
@@ -12,11 +12,26 @@ Reactの動かし方
     <script type="text/babel">
       const appEl = document.querySelector("#app");
       const root = ReactDOM.createRoot(appEl);
+      //関数コンポーネント
       function Example() {
         //コンポーネントの定義(先頭は大文字)
         return <h1>Hello React</h1>;
       }
+      //関数コンポーネントをアロー関数で定義
+      const Example = () => {
+        return <h1>Hello React</h1>;
+      };
       root.render(<Example />); //実行
+
+      //JSXが複数になる場合
+      const a = () => {
+        return (
+          <div>
+            <h1>Hello Components</h1>
+          </div>
+        );
+      };
+      console.log(a());
     </script>
   </body>
 </html>
