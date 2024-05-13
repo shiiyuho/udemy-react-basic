@@ -12,7 +12,11 @@ Reactの動かし方
     <script type="text/babel">
       const appEl = document.querySelector("#app");
       const root = ReactDOM.createRoot(appEl);
-      root.render(<h1>こんにちは</h1>);
+      function Example() {
+        //コンポーネントの定義(先頭は大文字)
+        return <h1>Hello React</h1>;
+      }
+      root.render(<Example />); //実行
     </script>
   </body>
 </html>
