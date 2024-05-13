@@ -6,7 +6,7 @@ function print(fn) {
 function fn(number = 3) {
   return number * 2;
 }
-debugger; //「ここで止める」という意味
+debugger; //「ここで止める」という意味,
 print(fn);
 
 //   console.log(fn(2));
