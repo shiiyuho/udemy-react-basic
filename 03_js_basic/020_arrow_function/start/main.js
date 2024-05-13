@@ -2,7 +2,7 @@ function fn(number) {
   return number * 2;
 }
 
-// const fn = function (number) {  //これより下、追加部分
+// const fn = function (number) {  //これより下、追加部分,
 //   //無名関数
 //   return number * 2;
 // };
