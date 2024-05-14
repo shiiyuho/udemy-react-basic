@@ -1,6 +1,18 @@
 import { useState } from "react";
 
 const Example = () => {
+  const [toggle, setToggle] = useState(true);
+  const toggleComponent = () => {
+    setToggle((prev) => !prev);
+  };
+  return (
+    <>
+      <button onClick={toggleComponent}>toggle</button>
+      {toggle ? <Count title="A" /> : <Count title="B" />}
+    </>
+  );
+};
+const Count = ({ title }) => {
   const [count, setCount] = useState(0);
   const countUp = () => {
     setCount((prevstate) => prevstate + 1);
