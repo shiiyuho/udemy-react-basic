@@ -1,6 +1,6 @@
 import "./Child.css";
 
-const Child = () => {
+const Example = () => {
   return (
     <div className="component">
       <h3>Hello Component</h3>
@@ -8,4 +8,4 @@ const Child = () => {
   );
 };
 
-export default Child;
+export default Example;
