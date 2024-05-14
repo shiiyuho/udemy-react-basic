@@ -8,7 +8,14 @@ const Example = () => {
   return (
     <>
       <button onClick={toggleComponent}>toggle</button>
-      {toggle ? <Count title="A" /> : <Count title="B" />}
+      {toggle ? (
+        <Count title="A" />
+      ) : (
+        <div>
+          {" "}
+          <Count title="B" />
+        </div>
+      )}
     </>
   );
 };
