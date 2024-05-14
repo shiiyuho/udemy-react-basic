@@ -5,14 +5,14 @@ import { useState } from "react";
 const Example = () => {
   const personObj = { name: "Tom", age: 18 };
   const [person, setPerson] = useState({ name: "Tom", age: 18 });
-  //Name設定
+  //Name設定(スプレッド演算子)
   const changeName = (e) => {
-    setPerson({ name: e.target.value, age: person.age });
+    setPerson({ ...person, name: e.target.value });
   };
 
-  //Age設定
+  //Age設定(スプレッド演算子)
   const changeAge = (e) => {
-    setPerson({ name: person.name, age: e.target.value });
+    setPerson({ ...person, age: e.target.value });
   };
 
   //リセット設定
