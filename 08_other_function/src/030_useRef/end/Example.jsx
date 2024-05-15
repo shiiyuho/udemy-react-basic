@@ -42,8 +42,10 @@ const Case2 = () => {
       <button
         onClick={() => {
           if (playing) {
+            //動画を止める
             videoRef.current.pause();
           } else {
+            //動画の再生
             videoRef.current.play();
           }
 
@@ -58,10 +60,6 @@ const Case2 = () => {
 
 const createTimeStamp = () => new Date().getTime();
 
-/* POINT useRefは再レンダリングされません。
-書き換え可能な情報としてコンポーネントに保持させておくことができます。
-state は更新されるごとに再レンダーされますが、refオブジェクトの中身が変わっても再レンダーが走ることはありません。
-*/
 const Case3 = () => {
   const [timeStamp, setValue] = useState(createTimeStamp());
   const ref = useRef(createTimeStamp());
@@ -90,15 +88,6 @@ const Case3 = () => {
   );
 };
 
-/* POINT refを使うべきタイミング
-Reactは一般的に、propsを通して親から子へ作用させる、というデータフローが原則です。
-refを使ってコンポーネントに作用を起こすことは、その原則を崩す行為なので多用は避けましょう。
-
-refに適した使用例は以下の場合とされています。
-- フォームへのフォーカス、テキストの選択、メディア（動画・音声）の再生の管理
-- アニメーションの発火
-- サードパーティの DOM や、React管理外のDOMの埋め込み
-*/
 const Example = () => {
   return (
     <>
