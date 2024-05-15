@@ -3,15 +3,18 @@ import { useState } from "react";
 // POINT ラジオボタンの実装
 const Example = () => {
   const [fruit, setFruit] = useState("Apple");
-  const onChange = (e) => setFruit(e.target.value);
+  const onChange = (e) => setFruit(e.target.value); //更新用関数
 
-  const RADIO_COLLECTION = ["Apple", "Banana", "Cherry"];
+  const RADIO_COLLECTION = ["Apple", "Banana", "Cherry"]; //選択肢
 
   return (
     <>
+      {/* ラジオボタン */}
       {RADIO_COLLECTION.map((value) => {
         return (
+          //lavelのkeyを忘れずに
           <label key={value}>
+            {" "}
             <input
               type="radio"
               value={value}

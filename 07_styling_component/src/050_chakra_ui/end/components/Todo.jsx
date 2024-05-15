@@ -36,6 +36,7 @@ const Todo = () => {
   };
 
   return (
+    //<div>の代わり(ディバイダーを設定できる（薄い横線）)
     <VStack p="10" spacing="10">
       <Heading color="blue.200" fontSize="5xl">
         Reminder
