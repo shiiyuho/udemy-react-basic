@@ -1,3 +1,4 @@
+//useRefのインポート
 import { useState, useRef } from "react";
 
 /* POINT useRefでDOMを取得
@@ -12,12 +13,14 @@ const Case1 = () => {
   return (
     <div>
       <h3>ユースケース1</h3>
+      {/* inputをrefへ */}
       <input
         type="text"
         ref={inputRef}
         value={value}
         onChange={(e) => setValue(e.target.value)}
       />
+      {/* focusメソッド・・・DOMのメソッド */}
       <button onClick={() => inputRef.current.focus()}>
         インプット要素をフォーカスする
       </button>
