@@ -32,6 +32,7 @@ const Example = () => {
           if (playing) {
             ref.current.stop();
           } else {
+            //動画が止まっているとき
             ref.current.play();
           }
           setPlaying((prev) => !prev);
