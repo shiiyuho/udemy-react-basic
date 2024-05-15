@@ -1,6 +1,6 @@
 import { useState } from "react";
-
 import SubButton from "./components/SubButton";
+//CSSファイルをインポート
 import "./Example.css";
 
 const Example = () => {
@@ -10,12 +10,8 @@ const Example = () => {
 
   return (
     <>
-      {/* POINT 動的なスタイルの適用 */}
-      {/* POINT クラスの付け外しに論理積 (&&) は使用してはいけません。
-      例） className={`btn ${isSelected && 'selected'}`}
-
-      isSelected が false の場合、 className='btn false' になってしまいます。 */}
       <button
+        //ボタンにカーソルが当たったらピンクになる設定
         className={`btn ${isSelected ? "selected" : ""}`}
         onClick={clickHandler}
       >
