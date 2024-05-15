@@ -52,7 +52,9 @@ const StyledButton = styled.button`
 
 // POINT スタイルの継承。styled()でラップする
 //　２０２４/04 Transient props を使用するように修正
+//background-colorだけ書き換える場合
 const StyledSubButton = styled(StyledButton)`
+  //継承するときの書き方
   background-color: ${({ $isSelectedSub }) =>
     $isSelectedSub ? "crimson" : "coral"};
 `;
