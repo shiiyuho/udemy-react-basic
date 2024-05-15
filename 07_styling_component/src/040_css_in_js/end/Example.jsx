@@ -1,12 +1,14 @@
 /* POINT css-in-js（styled-components） */
 
 import { useState } from "react";
+//スタイルドコンポーネントをインポート
 import styled from "styled-components";
 
 // POINT 拡張機能 styled-components.vscode-styled-components
 
 /* POINT 生成する要素を指定し、スタイルをテンプレートリテラルで記述します */
 // React要素扱いなので変数名は大文字で記述！
+//下のやつが関数となる
 const StyledButton = styled.button`
   margin-inline: auto;
   border-radius: 9999px;
@@ -24,7 +26,8 @@ const StyledButton = styled.button`
   2024/04 Transient props を使用するように修正 isSelected →　$isSelected
   参考: https://styled-components.com/docs/api#transient-props
   */
-  background-color: ${( $isSelected ) => ($isSelected ? "pink" : "darkcyan")};
+  //CSSを関数で書く場合
+  background-color: ${($isSelected) => ($isSelected ? "pink" : "darkcyan")};
   transition: all 0.3s ease-out;
 
   /* POINT 疑似クラスの追加 */
@@ -64,20 +67,6 @@ const Example = () => {
 
   const onClickHandler = () => setIsSelected(!isSelected);
   const onClickSubHandler = () => setIsSelectedSub(!isSelectedSub);
-
-  /* POINT css-in-jsのメリットとデメリット
-  メリット
-    スタイルをコンポーネントで定義するので、外部のcssに依存することなくコンポーネント単体で動作する
-    JavaScriptで記述するため、JSの文法が使用出来たり、propsとして値を渡すこともできる
-    ユニークなクラス名が自動生成され他のコンポーネントに影響を与えないことが保証される
-    cssの設計が必要なくなる
-    コンポーネントで完結しているため、他のプロジェクトで再利用がしやすい
-  デメリット
-    自動生成されるユニークなクラス名が読めない
-    cssに比べパフォーマンスに劣る
-    ※ 些細な差なのでデメリットというほどでも無い
-    ※ どうしても気になる方は、Nextjsを使用することでパフォーマンスの面は気にしなくてよくなります。
-  */
 
   return (
     // 属性にある isSelected は 上記で定義されています。
