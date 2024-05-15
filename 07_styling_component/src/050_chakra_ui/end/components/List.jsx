@@ -21,6 +21,7 @@ const List = ({ todos, deleteTodo }) => {
       bgColor="white"
       //         スマホ　　　　　ipadなど
       // color={{ sm: 'red.600', md: 'blue.600', lg: 'green.500', xl: 'red.600' }}
+      //[Alpha]を付けると色にフィルターがつく（CSS変数）
       borderColor="blackAlpha.100"
       borderWidth="1px"
       borderRadius="3px" //border-radius
@@ -32,13 +33,17 @@ const List = ({ todos, deleteTodo }) => {
           <HStack key={todo.id} spacing="5">
             <IconButton
               onClick={() => complete(todo.id)}
+              //アイコン読み込み
               icon={<VscCheck />}
+              //アイコンが丸くなる
               isRound
+              //back-ground
               bgColor="cyan.100"
               opacity="0.5"
             >
               完了
             </IconButton>
+            {/* <span></span>➡<Text></Text> */}
             <Text>{todo.content}</Text>
           </HStack>
         );
