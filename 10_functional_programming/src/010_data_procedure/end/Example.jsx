@@ -23,6 +23,7 @@ const Example = () => {
 
   return (
     <>
+      {/* 実行文 */}
       <div>オブジェクト指向型:{numObj.sum()}</div>
       <div>関数型:{sum(nums)}</div>
     </>
