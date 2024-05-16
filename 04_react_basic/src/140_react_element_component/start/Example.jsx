@@ -1,13 +1,14 @@
 import React from "react";
 
 const Bye = () => {
-      return <h2>GoodBye!</h2>;
-}
+  return <h2>GoodBye!</h2>;
+};
 
 const Example = () => {
   return (
     <div>
-      <Bye/>
+      <Bye />
+      {/*コンポーネントの中でコンポーネントを読み込んだ場合はType設定される */}
     </div>
   );
 };
@@ -15,4 +16,3 @@ const Example = () => {
 console.log(Example());
 
 export default Example;
-

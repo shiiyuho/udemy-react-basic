@@ -8,7 +8,15 @@ const FirstButton = styled.button`
   width: 11rem;
   border: none;
 `;
-
+//FirstButtonを継承したSecondButton
+const SecondButton = styled(FirstButton)`
+  background: red;
+  color: white;
+`;
+//SecondButtonを継承したThirdButton
+const ThirdButton = styled(SecondButton)`
+  background: ${(props) => (props.dark ? "black" : "green")};
+`;
 const Example = () => {
   return (
     <>
@@ -28,6 +36,8 @@ const Example = () => {
         </ul>
       </p>
       <FirstButton>ボタン1</FirstButton>
+      <SecondButton>ボタン2</SecondButton>
+      <ThirdButton>ボタン3</ThirdButton>
     </>
   );
 };

@@ -4,6 +4,7 @@ import { useState } from "react";
 const prefix = "end-";
 // POINT 複数チェックボックスの実装
 const Example = () => {
+  //配列の定義
   const [fruits, setFruits] = useState([
     { label: "Apple", value: 100, checked: false },
     { label: "Banana", value: 200, checked: false },
@@ -14,7 +15,7 @@ const Example = () => {
 
   const handleChange = (e) => {
     const newFruits = fruits.map((fruit) => {
-      const newFruit = { ...fruit };
+      const newFruit = { ...fruit }; //スプレッド演算子によってコピー
       if (newFruit.label === e.target.value) {
         newFruit.checked = !fruit.checked;
       }
@@ -23,10 +24,10 @@ const Example = () => {
     });
 
     setFruits(newFruits);
-    // forEachバージョン
+    // forEachバージョン(合計値の計算)
     // let sumVal = 0;
     // newFruits.forEach(fruit => {
-    //   if(fruit.checked) {
+    //   if(fruit.checked) {//trueの時「sumVal」に値段を追加
     //     sumVal = sumVal + fruit.value;
     //   }
     // });
@@ -39,7 +40,9 @@ const Example = () => {
 
     // filter + reduceバージョン
     let sumVal = newFruits
+      //fruitのcheckedものだけを配列として取得
       .filter((fruit) => fruit.checked)
+      //「reduce」は配列の要素を一つにまとめる
       .reduce((sumVal, fruit) => sumVal + fruit.value, 0);
     setSum(sumVal);
   };
