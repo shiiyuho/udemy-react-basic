@@ -1,5 +1,5 @@
 // POINT useReducerとuseStateの違い
-
+//簡単な場合はstateでいいけど、テストなどがある場合はreducer
 import { useReducer, useState } from "react";
 
 const Example = () => {
@@ -13,11 +13,6 @@ const Example = () => {
       default:
         throw new Error("不明なactionです。");
     }
-    // if (action === "+") {
-    //   return ++prev;
-    // } else if (action === "-") {
-    //   return --prev;
-    // }
   }, 0);
 
   const countUp = () => {
