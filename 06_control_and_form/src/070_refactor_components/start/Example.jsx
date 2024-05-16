@@ -1,32 +1,21 @@
+//コンポーネントのリファクタリング
+
 import { useState } from "react";
+import AnimalList from "./components/animallist";
+import AnimalFirter from "./components/AnimalFirter";
 
 const Example = () => {
   const animals = ["Dog", "Cat", "Rat"];
 
   const [filterVal, setFilterVal] = useState("");
-
+  const filterdAnimals = animals.filter((animal) => {
+    const isMatch = animal.indexOf(filterVal) !== -1;
+    return isMatch;
+  });
   return (
     <>
-      <input
-        type="text"
-        value={filterVal}
-        onChange={(e) => setFilterVal(e.target.value)}
-      />
-      <ul>
-        {animals
-          .filter((animal) => {
-            const isMatch = animal.indexOf(filterVal) !== -1;
-            return isMatch;
-          })
-          .map((animal) => {
-            return (
-              <li key={animal}>
-                {animal}
-                {animal === "Dog" && "★"}
-              </li>
-            );
-          })}
-      </ul>
+      <AnimalFirter firterState={[firterVal, setFilterVal]} />
+      <AnimalList animals={animals} />
     </>
   );
 };

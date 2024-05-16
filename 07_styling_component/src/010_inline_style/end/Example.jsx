@@ -1,3 +1,6 @@
+//インラインスタイル
+//インラインスタイルは、タグに直接あてる
+
 /* POINT
 ・再利用性が低い
 ・疑似要素やメディアクエリが使用できない
@@ -10,7 +13,7 @@ import { useState } from "react";
 const Example = () => {
   const [isSelected, setIsSelected] = useState(false);
 
-  const clickHandler = () => setIsSelected(prev => !prev);
+  const clickHandler = () => setIsSelected((prev) => !prev);
 
   /* POINT インラインスタイルのメリットとデメリット
   メリット
@@ -21,9 +24,10 @@ const Example = () => {
     疑似セレクタやメディアクエリにも対応していないため、実装しようとするとわかりづらいコードになってしまう
   */
 
-  /* POINT style属性に適応させるスタイルをオブジェクトで記述します */
+  /* styleの当て方は以下のように記述します（書き方はCSSと同じ） */
   const style = {
     margin: "auto",
+    //ハイフンを付けた指定の時は、以下のように「""」で囲む
     "border-radius": "9999px",
     border: "none",
     display: "block",
@@ -39,14 +43,15 @@ const Example = () => {
     backgroundColor: isSelected ? "pink" : "",
     /* POINT 直接記述することによって可読性が大きく低下するので、可読性が向上する方法を考えて実装してみよう */
   };
-
-
+  //クリックされた場合、「クリックされました」と表示
   return (
     <>
       <button style={style} onClick={clickHandler}>
         ボタン
       </button>
-      <div style={{ textAlign: "center" }}>{isSelected && "クリックされました。"}</div>
+      <div style={{ textAlign: "center" }}>
+        {isSelected && "クリックされました。"}
+      </div>
     </>
   );
 };

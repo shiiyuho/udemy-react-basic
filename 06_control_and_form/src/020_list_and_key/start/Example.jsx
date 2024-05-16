@@ -1,4 +1,3 @@
-
 const animals = ["Dog", "Cat", "Rat"];
 
 const Example = () => {
@@ -20,8 +19,11 @@ const Example = () => {
         {/* {animalList}
         {helloAnimals} */}
         {/* {animalList} */}
-
-        {animals.map((animal) => <li>Hello, {animal}</li>)}
+        /*
+        {animals.map((animal) => (
+          <li key={animal}>Hello, {animal}</li>
+        ))}{" "}
+        {/*子要素にはkeyプロパティを付ける */}
       </ul>
     </>
   );
