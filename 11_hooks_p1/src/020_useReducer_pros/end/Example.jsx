@@ -1,6 +1,7 @@
+// POINT useReducerとuseStateの違い
+
 import { useReducer, useState } from "react";
 
-// POINT useReducerとuseStateの違い
 const Example = () => {
   const [state, setState] = useState(0);
   const [rstate, dispatch] = useReducer((prev, { type, step }) => {
@@ -10,7 +11,7 @@ const Example = () => {
       case "-":
         return prev - step;
       default:
-        throw new Error('不明なactionです。')
+        throw new Error("不明なactionです。");
     }
     // if (action === "+") {
     //   return ++prev;
