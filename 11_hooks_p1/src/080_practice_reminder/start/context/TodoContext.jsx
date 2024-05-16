@@ -38,10 +38,12 @@ const todoReducer = (todos, action) => {
       return todos;
   }
 };
+//                       props
 const TodoProvider = ({ children }) => {
   const [todos, dispatch] = useReducer(todoReducer, todosList);
 
   return (
+    //全て囲む
     <TodoContext.Provider value={todos}>
       <TodoDispatchContext.Provider value={dispatch}>
         {children}
