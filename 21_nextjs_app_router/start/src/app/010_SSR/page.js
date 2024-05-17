@@ -1,19 +1,13 @@
-"use Client";
-import ArticleList from "@/components/articleList";
-import "./lib";
 import { ENDPOINT } from "@/constants";
-import ArticleList from "@/components/articleList";
+import Article from "@/components/article";
 
-export default async function SSR() {
-  const article = await featch(ENDPOINT, {
-    cache: "force-cache",
-  }).them((res) => res.json());
+export default async function SSR({ params }) {
+  const article = await fetch(`${ENDPOINT}/${params.id}`, {
+    next: { revalidate: 10 },
+  }).then((res) => res.json());
   return (
     <>
-      <div>SSR Page</div>
-      <div>{state}</div>
-      <ClientComp />
-      <ArticleList list={articles} basePath="/010_SSR" />
+      <Article data={article} />
     </>
   );
 }
