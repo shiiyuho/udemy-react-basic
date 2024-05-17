@@ -1,7 +1,11 @@
+//クリエイトポータルで「トースト」の作成
+
 import { useState } from "react";
+//クリエイトポータルのインポート
 import { createPortal } from "react-dom";
 import Toast from "./components/Toast";
 
+//ToastPortalの設定
 const ToastPortal = ({ children }) => {
   const target = document.querySelector(".container.end");
   return createPortal(children, target);
@@ -22,6 +26,7 @@ const Example = () => {
       </button>
 
       {toastOpen && (
+        //ToastPortalで囲む(container endの中に設定される)
         <ToastPortal>
           <Toast
             visible={toastOpen}

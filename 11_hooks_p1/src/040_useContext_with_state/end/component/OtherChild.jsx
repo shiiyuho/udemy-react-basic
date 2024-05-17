@@ -1,6 +1,8 @@
 import { useContext } from "react";
 import { MyContext } from "../Example";
+
 const OtherChild = () => {
+  //1番目が欲しいから引数1は「,」で省略
   const [, setState] = useContext(MyContext);
 
   const clickHandler = (e) => {

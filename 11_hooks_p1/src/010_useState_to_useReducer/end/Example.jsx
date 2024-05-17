@@ -1,25 +1,21 @@
+/*useReducerの使い方(useStateの書き換え)*/
 import { useReducer, useState } from "react";
-/* POINT useReducerの使い方
+/*
 const [state, dispatch] = useReducer(reducer, initialArg, init)
 reducer(state, action)
 */
-// POINT useReducerはuseStateの書き換えに使用
 const Example = () => {
   const [state, setState] = useState(0);
+  //reducer（引数の1番目にstateが来る）
   const [rstate, dispatch] = useReducer((prev, { type, step }) => {
     switch (type) {
       case "+":
-        return prev + step; 
+        return prev + step;
       case "-":
         return prev - step;
       default:
-        throw new Error('不明なactionです。')
+        throw new Error("不明なactionです。");
     }
-    // if (action === "+") {
-    //   return ++prev;
-    // } else if (action === "-") {
-    //   return --prev;
-    // }
   }, 0);
 
   const countUp = () => {
@@ -38,6 +34,7 @@ const Example = () => {
         <button onClick={countUp}>+</button>
       </div>
       <div>
+        reducerの実行文
         <h3>{rstate}</h3>
         <button onClick={rcountUp}>+</button>
         <button onClick={rcountDown}>-</button>

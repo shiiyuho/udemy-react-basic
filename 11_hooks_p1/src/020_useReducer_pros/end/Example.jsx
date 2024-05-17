@@ -1,6 +1,7 @@
+// POINT useReducerとuseStateの違い
+//簡単な場合はstateでいいけど、テストなどがある場合はreducer
 import { useReducer, useState } from "react";
 
-// POINT useReducerとuseStateの違い
 const Example = () => {
   const [state, setState] = useState(0);
   const [rstate, dispatch] = useReducer((prev, { type, step }) => {
@@ -10,13 +11,8 @@ const Example = () => {
       case "-":
         return prev - step;
       default:
-        throw new Error('不明なactionです。')
+        throw new Error("不明なactionです。");
     }
-    // if (action === "+") {
-    //   return ++prev;
-    // } else if (action === "-") {
-    //   return --prev;
-    // }
   }, 0);
 
   const countUp = () => {

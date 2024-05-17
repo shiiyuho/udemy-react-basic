@@ -2,9 +2,9 @@ import { useRef, forwardRef, useImperativeHandle } from "react";
 
 // POINT 親からのrefへの参照を制限
 const Input = forwardRef((props, ref) => {
-
+  //上とは違うレフを設定してExampleに渡す。
   const inputRef = useRef();
-  
+
   /* POINT useImperativeHandle
   第1引数: 親コンポーネントから受け取ったrefオブジェクト
   第2引数: 追加したいメソッドが格納されたオブジェクトを返す関数
@@ -12,9 +12,9 @@ const Input = forwardRef((props, ref) => {
   useImperativeHandle(ref, () => ({
     myFocus() {
       inputRef.current.focus();
-      console.log('フォーカス取得')
-    }
-  }))
+      console.log("フォーカス取得");
+    },
+  }));
 
   return <input type="text" ref={inputRef} />;
 });

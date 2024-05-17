@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useDispatchTodos } from "../context/TodoContext";
 const Form = ({ createTodo }) => {
   const [enteredTodo, setEnteredTodo] = useState("");
+  const dispatch = useDispatchTodos();
 
   const addTodo = (e) => {
     e.preventDefault();
@@ -11,7 +13,8 @@ const Form = ({ createTodo }) => {
       editing: false,
     };
 
-    createTodo(newTodo);
+    // 2023/10 修正editingがundefinedになるためediting: falseを追加
+    dispatch({ type: "todo/add", todo: newTodo, editing: false });
 
     setEnteredTodo("");
   };
