@@ -6,17 +6,19 @@ import Modal from "./components/Modal";
 第一引数: React の子要素としてレンダー可能なもの （要素、文字列、フラグメント、コンポーネントなど）
 第二引数: レンダー先のDOM要素
 */
+//下がクリエイトポータルで作るコンポーネント
 const ModalPortal = ({ children }) => {
+  //DOMの設定
   const target = document.querySelector(".container.end");
+
   return createPortal(children, target);
 };
 
 const Example = () => {
   const [modalOpen, setModalOpen] = useState(false);
   return (
-    
-    <div onClick={() => console.log('空のdiv')}>
-      <div className="container end" onClick={() => console.log('container')} />
+    <div onClick={() => console.log("空のdiv")}>
+      <div className="container end" onClick={() => console.log("container")} />
 
       <button
         type="button"
@@ -25,14 +27,13 @@ const Example = () => {
       >
         モーダルを表示する
       </button>
-      
+
       {modalOpen && (
-        
+        //モーダルポータル
         <ModalPortal>
           <Modal handleCloseClick={() => setModalOpen(false)} />
         </ModalPortal>
       )}
-      
     </div>
   );
 };

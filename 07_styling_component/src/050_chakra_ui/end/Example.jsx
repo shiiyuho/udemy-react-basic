@@ -9,6 +9,7 @@ const Example = () => {
   // POINT Chakra UIを使用するためにChakraProviderでラップする
   return (
     <>
+      {/* <ChakraProvider></ChakraProvider>で囲むことでチャクラUIが使える */}
       <ChakraProvider>
         <Todo />
       </ChakraProvider>

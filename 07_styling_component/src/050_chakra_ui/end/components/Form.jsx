@@ -4,6 +4,7 @@ import { HStack, Input, Button, useToast } from "@chakra-ui/react";
 const Form = ({ createTodo }) => {
   const [enteredTodo, setEnteredTodo] = useState("");
 
+  //Toast・・・ダイアログのようなもの
   const toast = useToast();
 
   const addTodo = (e) => {
@@ -13,6 +14,7 @@ const Form = ({ createTodo }) => {
       toast({
         title: "新しいタスクを入力してください",
         status: "error",
+        //期間
         duration: 2000,
         isClosable: true,
       });
@@ -34,7 +36,7 @@ const Form = ({ createTodo }) => {
       status: "info",
       duration: 3000,
       isClosable: true,
-    });  
+    });
   };
 
   return (

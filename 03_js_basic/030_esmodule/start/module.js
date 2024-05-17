@@ -6,7 +6,7 @@ const funcB = () => {
   console.log("funcB output");
 };
 
-export default funcB; //ひとつのファイルに一つだけ
+export default funcB; //ひとつのファイルに一つだけ.
 
 class User {
   constructor(name) {
