@@ -1,6 +1,5 @@
 "use Client";
 
-import { useState, useEffect } from "react";
 import "./lib";
 
 export default function SSR() {
