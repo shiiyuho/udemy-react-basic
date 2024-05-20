@@ -3,14 +3,13 @@
 import { ENDPOINT } from "@/constants";
 
 export async function createItem(state, formData) {
-  console.log(state);
+  // console.log(state);
+
   const id = formData.get("id");
   const title = formData.get("title");
-
   if (id === "" || title === "") {
     return { msg: "入力フィールドが空です。" };
   }
-
   try {
     const res = await fetch(ENDPOINT, {
       method: "POST",
