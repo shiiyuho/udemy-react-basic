@@ -2,6 +2,11 @@
 import { ENDPOINT } from "@/constants";
 import ArticleList from "../../components/articleList";
 
+export async function generateStaticParams() {
+  const data = (await fetch(ENDPOINT)).them((res) => res.json());
+  console.log(data);
+  return data.map((record) => ({ id: record.id }));
+}
 export default async function Page() {
   const articles = await fetch(ENDPOINT, { cache: "no-store" }).then((res) =>
     res.json()
