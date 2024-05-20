@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 
 const Example = () => {
   const [state, setState] = useState(0);
-
+  //➁
   useEffect(
     function update() {
       console.log("update");
@@ -15,17 +15,17 @@ const Example = () => {
     },
     [state]
   );
-
+  //➂
   useEffect(() => {
     console.log("mount");
-
+    //➃
     return () => {
       console.log("mount cleanup");
     };
   }, []);
-
+  //➀
   console.log("render");
-  
+
   return (
     <>
       <button onClick={() => setState((prev) => prev + 1)}>更新</button>

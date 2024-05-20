@@ -1,4 +1,4 @@
-// POINT useContextとstate
+// useContextとstate
 import { createContext, useState } from "react";
 import Child from "./component/Child";
 import OtherChild from "./component/OtherChild";

@@ -3,30 +3,34 @@
 import { ENDPOINT } from "@/constants";
 
 export async function GET() {
-  const data = await fetch(ENDPOINT).then(res => res.json())
-  return Response.json(data)
+  const data = await fetch(ENDPOINT).then((res) => res.json());
+  return Response.json(data);
 }
 
 export async function POST(request) {
   const formData = await request.formData();
-  const id = formData.get('id');
-  const title = formData.get('title');
+  //idとtitleに記入された値の出力
+  const id = formData.get("id");
+  const title = formData.get("title");
 
-  if(id === '' || title === '') {
-    return Response.json({ msg: '入力フィールドが空です。' }, { status: 500 })
+  //idかtitleが空だった時にerrorを表示する（500番で）
+  if (id === "" || title === "") {
+    return Response.json({ msg: "入力フィールドが空です。" }, { status: 500 });
   }
-
   try {
-    const res = await fetch(ENDPOINT, { 
-      method: 'POST', 
+    //データがJsonサーバーに対して登録されるコード
+    const res = await fetch(ENDPOINT, {
+      method: "POST",
       headers: {
-      "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify({ id, title })
+      body: JSON.stringify({ id, title }),
     });
+    //jsonサーバーからけってきたJsonをレスポンスとしてAPIの戻り値にする
     const data = await res.json();
     return Response.json(data);
-  } catch(e) {
-    return Response.json({ msg: '登録に失敗しました。' }, { status: 500 })
+    //エラーが起こったときに知らせる処理
+  } catch (e) {
+    return Response.json({ msg: "登録に失敗しました。" }, { status: 500 });
   }
 }
