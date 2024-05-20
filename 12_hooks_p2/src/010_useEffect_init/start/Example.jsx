@@ -4,7 +4,7 @@ const Example = () => {
   //配列でtimeを設定
   const [time, setTime] = useState(0);
 
-  //useEffect(コンポーネントを1回だけ呼びたい時に使う)
+  //useEffect(引数の実行が行われたとき1度だけ呼び出される)
   useEffect(() => {
     //下記によりコールバック関数が実行
     window.setInterval(() => {
